@@ -21,7 +21,7 @@ DEV_REQUIREMENTS = [
     "mlflow",
     "delta-spark",
     "scikit-learn",
-    "pandas"
+    "pandas",
 ]
 
 setup(
@@ -30,11 +30,12 @@ setup(
     setup_requires=["wheel"],
     install_requires=PACKAGE_REQUIREMENTS,
     extras_require={"dev": DEV_REQUIREMENTS},
-    entry_points = {
+    entry_points={
         "console_scripts": [
             "etl = dbx_dlt_devops.tasks.sample_etl_task:entrypoint",
-            "ml = dbx_dlt_devops.tasks.sample_ml_task:entrypoint"
-    ]},
+            "ml = dbx_dlt_devops.tasks.sample_ml_task:entrypoint",
+        ]
+    },
     version=__version__,
     description="",
     author="",

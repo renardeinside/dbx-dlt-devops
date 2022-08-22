@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC 
+# MAGIC
 # MAGIC # This notebook is used for exploration and dev purposes
 
 # COMMAND ----------
@@ -24,7 +24,7 @@ sys.path.append(project_root)
 
 # COMMAND ----------
 
-data_schema = 'DOLocationID BIGINT,PULocationID BIGINT,RatecodeID BIGINT,VendorID BIGINT,congestion_surcharge DOUBLE,extra DOUBLE,fare_amount DOUBLE,improvement_surcharge DOUBLE,mta_tax DOUBLE,passenger_count BIGINT,payment_type BIGINT,store_and_fwd_flag STRING,tip_amount DOUBLE,tolls_amount DOUBLE,total_amount DOUBLE,tpep_dropoff_datetime STRING,tpep_pickup_datetime STRING,trip_distance DOUBLE,pep_pickup_date_txt DATE'
+data_schema = "DOLocationID BIGINT,PULocationID BIGINT,RatecodeID BIGINT,VendorID BIGINT,congestion_surcharge DOUBLE,extra DOUBLE,fare_amount DOUBLE,improvement_surcharge DOUBLE,mta_tax DOUBLE,passenger_count BIGINT,payment_type BIGINT,store_and_fwd_flag STRING,tip_amount DOUBLE,tolls_amount DOUBLE,total_amount DOUBLE,tpep_dropoff_datetime STRING,tpep_pickup_datetime STRING,trip_distance DOUBLE,pep_pickup_date_txt DATE"
 
 # COMMAND ----------
 
@@ -32,7 +32,12 @@ from dbx_dlt_devops.filters import GroupsReportProvider
 
 # COMMAND ----------
 
-all_trips = spark.read.format("json").option("inferSchema", False).option("schema", data_schema).load("/databricks-datasets/nyctaxi/sample/json/")
+all_trips = (
+    spark.read.format("json")
+    .option("inferSchema", False)
+    .option("schema", data_schema)
+    .load("/databricks-datasets/nyctaxi/sample/json/")
+)
 
 # COMMAND ----------
 
@@ -48,5 +53,3 @@ s4 = GroupsReportProvider.prepare_report(s3)
 display(s4)
 
 # COMMAND ----------
-
-
