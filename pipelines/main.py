@@ -1,11 +1,12 @@
 # Databricks notebook source
-# MAGIC %md
-# MAGIC
-# MAGIC # Main DLT pipeline which prepares the tables
+# DBTITLE 1,Install package
+# MAGIC %pip install /dbfs/packages/dbx_dlt_devops-0.0.1-py3-none-any.whl
 
 # COMMAND ----------
 
-# MAGIC %pip install /dbfs/packages/dbx_dlt_devops-0.0.1-py3-none-any.whl
+# MAGIC %md
+# MAGIC 
+# MAGIC ## Main DLT pipeline which prepares the tables
 
 # COMMAND ----------
 
