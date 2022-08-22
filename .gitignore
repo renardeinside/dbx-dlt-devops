@@ -32,3 +32,5 @@ htmlcov/*
 
 # local mlflow files
 mlruns/
+
+.dbx/sync/
