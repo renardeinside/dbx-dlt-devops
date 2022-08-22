@@ -5,12 +5,7 @@
 
 # COMMAND ----------
 
-from pathlib import Path
-import sys
-
-project_root = Path(".").absolute().parent
-print(f"appending the main project code from {project_root}")
-sys.path.append(project_root)
+# MAGIC %pip install /dbfs/packages/dbx_dlt_devops-0.0.1-py3-none-any.whl
 
 # COMMAND ----------
 
