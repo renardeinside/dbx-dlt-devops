@@ -5,7 +5,7 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC 
+# MAGIC
 # MAGIC ## Main DLT pipeline which prepares the tables
 
 # COMMAND ----------
