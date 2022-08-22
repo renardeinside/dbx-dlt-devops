@@ -40,18 +40,12 @@ display(all_trips)
 
 # COMMAND ----------
 
-group_trips_only = GroupsReportProvider.get_only_group_trips(all_trips)
-with_pickup_features = GroupsReportProvider.add_pickup_features(group_trips_only)
+s1 = GroupsReportProvider.get_only_group_trips(all_trips)
+s2 = GroupsReportProvider.add_pickup_features(s1)
+s3 = GroupsReportProvider.add_holiday_info(s2)
+s4 = GroupsReportProvider.prepare_report(s3)
 
-display(with_pickup_features)
-
-# COMMAND ----------
-
-with_holiday_info = GroupsReportProvider.add_holiday_info(with_pickup_features)
-
-display(
-    with_holiday_info
-)
+display(s4)
 
 # COMMAND ----------
 
