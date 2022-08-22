@@ -1,6 +1,5 @@
 from pyspark.sql import DataFrame as SparkDataFrame
-from pyspark.sql.functions import to_timestamp, dayofweek, pandas_udf, hour, col
-from pyspark.sql.types import BooleanType
+from pyspark.sql.functions import to_timestamp, dayofweek, pandas_udf, hour, col, expr, sum, avg, count, lit
 
 import pandas as pd
 import holidays
@@ -27,7 +26,7 @@ class GroupsReportProvider:
         return trips.where("passenger_count is not null and passenger_count >= 3")
 
     @staticmethod
-    def add_pickup_features(trips: SparkDataFrame) -> SparkDataFrame:
+    def add_pickup_info(trips: SparkDataFrame) -> SparkDataFrame:
         result = (
             trips.withColumn("pickup_dttm", to_timestamp("tpep_pickup_datetime"))
             .withColumn("pickup_day_of_week", dayofweek("pickup_dttm"))
@@ -38,5 +37,16 @@ class GroupsReportProvider:
     def add_holiday_info(trips: SparkDataFrame) -> SparkDataFrame:
         result = (
             trips.withColumn("pickup_is_holiday", GroupsReportProvider.is_holiday(col("pickup_dttm")))
+        )
+        return result
+
+    def prepare_report(trips: SparkDataFrame) -> SparkDataFrame:
+        result = (
+            trips.withColumn("pickup_month", expr("date_trunc('month', pickup_dttm)"))
+            .groupBy("pickup_month", "pickup_day_of_week", "pickup_hour_of_day", "pickup_is_holiday").agg(
+                count(lit(1)).alias("num_trips"),
+                sum("total_amount").alias("total_amount"),
+                avg("trip_distance").alias("avg_trip_distance")
+            )
         )
         return result

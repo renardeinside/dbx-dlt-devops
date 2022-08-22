@@ -8,7 +8,7 @@ Please follow the `entry_points` documentation for more details on how to config
 from setuptools import find_packages, setup
 from dbx_dlt_devops import __version__
 
-PACKAGE_REQUIREMENTS = ["PyYAML"]
+PACKAGE_REQUIREMENTS = ["PyYAML", "holidays"]
 
 DEV_REQUIREMENTS = [
     "setuptools",
