@@ -5,7 +5,7 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC
+# MAGIC 
 # MAGIC ## Main DLT pipeline which prepares the tables
 
 # COMMAND ----------
@@ -37,7 +37,7 @@ def trips_raw():
 
 @dlt.table(comment="Only trips which are considered as a group (3 or more passangers)")
 def group_trips():
-    return GroupsReportProvider.get_only_group_trips(dlt.read("taxi_raw"))
+    return GroupsReportProvider.get_only_group_trips(dlt.read("trips_raw"))
 
 
 # COMMAND ----------
