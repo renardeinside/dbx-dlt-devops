@@ -1,0 +1,9 @@
+{
+    "environments": {
+        "default": {
+            "profile": "itrusov-az-dbx",
+            "workspace_dir": "/Shared/dbx/dbx_dlt_devops",
+            "artifact_location": "dbfs:/Shared/dbx/projects/dbx_dlt_devops"
+        }
+    }
+}
