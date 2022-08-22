@@ -1,4 +1,0 @@
-input:
-  database: "default"
-  table: "sklearn_housing"
-experiment: "/Shared/dbx-dlt-devops/sample_experiment"

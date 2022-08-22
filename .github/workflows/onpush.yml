@@ -41,12 +41,4 @@ jobs:
           echo "Launching unit tests"
           pytest tests/unit
 
-      - name: Jobless deployment (files only upload)
-        run: |
-          dbx deploy --job=dbx-dlt-devops-sample-etl-2.0 --files-only
-
-      - name: Run the job in a jobless fashion
-        run: |
-          dbx launch --job=dbx-dlt-devops-sample-etl-2.0 --as-run-submit --trace
-
 
