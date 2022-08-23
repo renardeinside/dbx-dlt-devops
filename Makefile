@@ -1,3 +1,5 @@
+WORKSPACE_URL = https://adb-3867452311804142.2.azuredatabricks.net
+
 build:
 	pip wheel -e ".[dev]" -w dist --no-dep
 

@@ -11,17 +11,23 @@ from dbx_dlt_devops import __version__
 PACKAGE_REQUIREMENTS = ["PyYAML", "holidays"]
 
 DEV_REQUIREMENTS = [
+    # installation & build
     "setuptools",
     "wheel",
-    "pyspark",
+    # versions set in accordance with DBR 10.4 ML Runtime
+    "pyspark==3.2.1",
+    "delta-spark==1.1.0",
+    "pyarrow",
+    # generic dependencies
     "pyyaml",
-    "pytest",
-    "pytest-cov",
-    "dbx",
-    "mlflow",
-    "delta-spark",
     "scikit-learn",
     "pandas",
+    "mlflow",
+    # development & testing tools
+    "pytest",
+    "coverage[toml]",
+    "pytest-cov",
+    "dbx>=0.6,<0.8"
 ]
 
 setup(
