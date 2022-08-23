@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC
+# MAGIC 
 # MAGIC # This notebook is used for exploration and dev purposes
 
 # COMMAND ----------
@@ -46,10 +46,8 @@ display(all_trips)
 # COMMAND ----------
 
 s1 = GroupsReportProvider.get_only_group_trips(all_trips)
-s2 = GroupsReportProvider.add_pickup_features(s1)
+s2 = GroupsReportProvider.add_pickup_info(s1)
 s3 = GroupsReportProvider.add_holiday_info(s2)
 s4 = GroupsReportProvider.prepare_report(s3)
 
 display(s4)
-
-# COMMAND ----------

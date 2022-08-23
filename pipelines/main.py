@@ -68,5 +68,5 @@ def group_trips_with_pickup_and_holiday_info():
 )
 def prepare_report():
     return GroupsReportProvider.add_holiday_info(
-        dlt.read("group_trips_with_pickup_info")
+        dlt.read("group_trips_with_pickup_and_holiday_info")
     )

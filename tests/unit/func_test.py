@@ -1,9 +1,11 @@
+from dbx_dlt_devops.filters import GroupsReportProvider
 from pyspark.sql import SparkSession
 import pandas as pd 
 
 def test_chain(spark: SparkSession):
 
     from dbx_dlt_devops.filters import GroupsReportProvider
+
     trips = spark.createDataFrame([
         (None, pd.to_datetime("2019-12-01T00:00:00.000+0000").to_pydatetime(), 100.0, 9.0),
         (2, pd.to_datetime("2019-12-01T00:00:00.000+0000").to_pydatetime(), 100.0, 9.0),
@@ -30,3 +32,4 @@ def test_chain(spark: SparkSession):
     assert report.where("avg_trip_distance is null").count() == 0
     
     report.show()
+
