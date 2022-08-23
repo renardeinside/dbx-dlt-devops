@@ -10,6 +10,7 @@ from pyspark.sql.functions import (
     avg,
     count,
     lit,
+    min
 )
 
 import pandas as pd
@@ -64,6 +65,7 @@ class GroupsReportProvider:
                 count(lit(1)).alias("num_trips"),
                 sum("total_amount").alias("total_amount"),
                 avg("trip_distance").alias("avg_trip_distance"),
+                min("trip_distance").alias("min_trip_distance")
             )
         )
         return result

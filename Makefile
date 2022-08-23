@@ -1,7 +1,8 @@
-WORKSPACE_URL = https://adb-3867452311804142.2.azuredatabricks.net
+.PHONY = build 
 
 build:
-	pip wheel -e ".[dev]" -w dist --no-dep
+	rm -rf dist
+	pip wheel -e ".[dev]" -w dist --no-deps
 
 upload:
 	databricks --profile=itrusov-az-dbx fs cp \
@@ -18,7 +19,7 @@ prepare-workspace:
 update-repo:
 	databricks repos update \
 		--profile=itrusov-az-dbx \
-		--path=/Repos/Staging/dbx-dlt-devops --branch=main
+		--path=/Repos/Staging/dbx-dlt-devops --branch=main 
 
 prepare-packages-folder:
 	databricks --profile=itrusov-az-dbx fs mkdirs dbfs:/packages

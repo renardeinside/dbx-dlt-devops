@@ -1,4 +1,3 @@
-from dbx_dlt_devops.filters import GroupsReportProvider
 from pyspark.sql import SparkSession
 import pandas as pd 
 
